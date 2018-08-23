@@ -91,12 +91,12 @@ const toVnode = function(html, send) {
     return html;
   }
 
+  var transition, transitionGroup;
+
   switch (html[0]) {
     case ELEMENT: {
-      var builder = h;
       const name = html[1];
       const traits = html[2];
-      const children = html[3];
 
       const data = {};
       for (var i = 0; i < traits.length; i++) {
@@ -138,35 +138,30 @@ const toVnode = function(html, send) {
             }
             break;
           case TRANSITION:
-            builder = function(name, data, children) {
-              return snabbdomTransition.Transition(
-                trait[1],
-                name,
-                data,
-                children
-              );
-            };
+            transition = trait[1];
             break;
           case TRANSITION_GROUP:
-            builder = function(name, data, children) {
-              return snabbdomTransition.TransitionGroup(
-                trait[1],
-                name,
-                data,
-                children
-              );
-            };
+            transitionGroup = trait[1];
             break;
         }
       }
 
-      return builder(
-        name,
-        data,
-        children.map(function(child) {
-          return toVnode(child, send);
-        })
-      );
+      const children = html[3].map(function(child) {
+        return toVnode(child, send);
+      });
+
+      if (transition) {
+        return snabbdomTransition.Transition(transition, name, data, children);
+      }
+      if (transitionGroup) {
+        return snabbdomTransition.TransitionGroup(
+          transitionGroup,
+          name,
+          data,
+          children
+        );
+      }
+      return h(name, data, children);
     }
 
     case MAP: {
