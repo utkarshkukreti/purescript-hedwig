@@ -19,6 +19,7 @@
   "devDependencies": {
     "purescript-psci-support": "^4.0.0",
     "purescript-random": "^4.0.0",
-    "purescript-integers": "^4.0.0"
+    "purescript-integers": "^4.0.0",
+    "purescript-affjax": "^7.0.0"
   }
 }
