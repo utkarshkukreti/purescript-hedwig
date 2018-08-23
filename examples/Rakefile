@@ -1,0 +1,28 @@
+mkdir_p "dist"
+
+FileList["*.purs"].ext("").each do |name|
+  task :default => "dist/#{name}.js"
+  file "dist/#{name}.js" => ["#{name}.purs", *FileList["../src/**/*"]] do |a|
+    sh "cd .. && pulp browserify --include examples --optimise --main Examples.#{name} --to examples/dist/#{name}.js"
+  end
+
+  task :default => "dist/#{name}.html"
+  file "dist/#{name}.html" => "#{name}.purs" do |a|
+    File.write "dist/#{name}.html", <<-HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>#{name}</title>
+  </head>
+  <body>
+    <main></main>
+    <script src="#{name}.js"></script>
+  </body>
+</html>
+    HTML
+  end
+end
+
+task :clean do
+  rm_rf "dist"
+end
