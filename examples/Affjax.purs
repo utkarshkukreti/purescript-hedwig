@@ -50,7 +50,7 @@ view model = H.main [H.id "main"] [
     Fetching ->
       H.div [] [H.text "Fetching..."]
     Ok ok ->
-      H.div [] [H.text $ "Ok: " <> ok]
+      H.pre [] [H.code [] [H.text $ "Ok: " <> ok]]
     Error error ->
       H.div [] [H.text $ "Error: " <> error]
 ]
