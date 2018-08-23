@@ -54,8 +54,8 @@ mount' el app = do
       let Tuple newModel affs = app.update oldModel msg
       Foreign.devtools.send newModel msg
       Ref.write newModel model
-      dispatch affs
       render
+      dispatch affs
     render = do
       oldVnode <- Ref.read vnode
       html <- app.view <$> Ref.read model
