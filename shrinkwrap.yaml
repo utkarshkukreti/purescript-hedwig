@@ -1,7 +1,7 @@
 dependencies:
   remotedev: 0.2.7
   snabbdom: 0.7.1
-  snabbdom-transition: 0.1.1
+  snabbdom-transition: 0.2.0
 devDependencies:
   pulp: 12.3.0
 packages:
@@ -1737,12 +1737,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-c0TLuLbib7J9ZrL8hvn21Zl1IcY=
-  /snabbdom-transition/0.1.1:
+  /snabbdom-transition/0.2.0:
     dependencies:
       snabbdom: 0.7.1
     dev: false
     resolution:
-      integrity: sha512-xDKQmTOxn/pf8ECBR9q8UVjxJcy/nAMZrwRrMUKSzVfXQ072tyOMc//S0qyRRYoIa1HzhWdBzrznS+KhXNWQ+g==
+      integrity: sha512-fEhsN1ysPA90mpzYr7cr6y55MXetvS+xAi95prPCXYwYo3/5WhH7c2oFgLBtAf9FlqKiVVB11V8Wug9THykC1g==
   /snabbdom/0.7.1:
     dev: false
     resolution:
@@ -2112,4 +2112,4 @@ specifiers:
   pulp: ^12.3.0
   remotedev: ^0.2.7
   snabbdom: ^0.7.1
-  snabbdom-transition: ^0.1.1
+  snabbdom-transition: ^0.2.0

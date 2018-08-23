@@ -8,7 +8,7 @@
   "dependencies": {
     "remotedev": "^0.2.7",
     "snabbdom": "^0.7.1",
-    "snabbdom-transition": "^0.1.1"
+    "snabbdom-transition": "^0.2.0"
   },
   "devDependencies": {
     "pulp": "^12.3.0"
