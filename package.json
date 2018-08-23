@@ -1,0 +1,16 @@
+{
+  "name": "purescript-hedwig",
+  "version": "0.1.0",
+  "files": [
+    "package.json",
+    "index.js"
+  ],
+  "dependencies": {
+    "remotedev": "^0.2.7",
+    "snabbdom": "^0.7.1",
+    "snabbdom-transition": "^0.1.1"
+  },
+  "devDependencies": {
+    "pulp": "^12.3.0"
+  }
+}

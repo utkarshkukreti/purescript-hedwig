@@ -1,0 +1,24 @@
+{
+  "name": "purescript-hedwig",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^4.1.0",
+    "purescript-console": "^4.1.0",
+    "purescript-effect": "^2.0.0",
+    "purescript-web-events": "^1.0.0",
+    "purescript-web-dom": "^1.0.0",
+    "purescript-web-html": "^1.0.0",
+    "purescript-nullable": "^4.0.0",
+    "purescript-aff": "^5.0.1"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^4.0.0",
+    "purescript-random": "^4.0.0",
+    "purescript-integers": "^4.0.0"
+  }
+}
