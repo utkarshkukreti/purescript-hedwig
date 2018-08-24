@@ -50,6 +50,8 @@ $ bower install
 $ npm start
 ```
 
+and open `index.html` in your browser.
+
 ### From Scratch
 
 Initialize a new project using `pulp` and create an empty `package.json`:
