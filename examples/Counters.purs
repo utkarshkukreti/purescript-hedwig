@@ -8,6 +8,7 @@ import Effect (Effect)
 import Examples.Counter as Counter
 import Hedwig ((:>))
 import Hedwig as H
+import Hedwig.Devtools as Devtools
 
 type Model = Array (Counter.Model)
 
@@ -38,6 +39,7 @@ view model = H.main [H.id "main"] [
 
 main :: Effect Unit
 main = do
+  Devtools.init
   H.mount "main" {
     init: init :> [],
     update: \msg model -> update msg model :> [],
