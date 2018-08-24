@@ -13,6 +13,7 @@ FileList["*.purs"].ext("").each do |name|
 <html>
   <head>
     <title>#{name}</title>
+    #{File.exist?("#{name}.css") ? "<link rel=\"stylesheet\" href=\"#{name}.css\">" : ""}
   </head>
   <body>
     <main></main>
@@ -20,6 +21,14 @@ FileList["*.purs"].ext("").each do |name|
   </body>
 </html>
     HTML
+  end
+
+  if File.exist?("#{name}.css")
+    task :default => "dist/#{name}.css"
+
+    file "dist/#{name}.css" => "#{name}.css" do |a|
+      cp "#{name}.css", "dist/#{name}.css"
+    end
   end
 end
 
