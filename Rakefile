@@ -91,3 +91,16 @@ sync = liftEffect
 "
   end
 end
+
+task "gh-pages" do
+  sh <<-SH
+cd examples && \
+rake && \
+cd dist dist && \
+git init && \
+git add . && \
+git commit -m init && \
+git remote add origin git@github.com:utkarshkukreti/purescript-hedwig.git && \
+git push origin master:gh-pages -f
+SH
+end
