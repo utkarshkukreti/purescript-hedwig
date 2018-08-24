@@ -221,6 +221,9 @@ To enable this, you need to do two things:
 2.  In your `main` function, before you mount the application, call
     `Hedwig.Devtools.init`.
 
+For an example, check out the source of the [Counters](./examples/Counters.purs)
+example.
+
 After recompiling your application, you should see all messages and state being
 logged into the Redux tab of Chrome DevTools window.
 
