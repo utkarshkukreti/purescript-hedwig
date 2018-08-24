@@ -1,0 +1,44 @@
+body {
+  width: 500px;
+  margin: 2rem auto;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list > * {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  background: crimson;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+
+.bounce-move {
+  transition: 0.5s all;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
