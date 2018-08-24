@@ -210,6 +210,10 @@ modification viewer and time travelling debugger.
 
 ![Hedwig with Redux DevTools](https://gist.githubusercontent.com/utkarshkukreti/ad83e5a0eb7e6f456e20be0778aae843/raw/2d5ca8641f267aef08d7d658e0fa4ab24b997c21/purescript-hedwig-redux-2.gif)
 
+(To try this right now, install the [Redux DevTools Chrome
+Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+and head over to [this page](https://utkarshkukreti.github.io/purescript-hedwig/Counters.html).)
+
 To enable this, you need to do two things:
 
 1.  Import `Hedwig.Devtools`
