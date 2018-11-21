@@ -2,11 +2,15 @@ module Hedwig.Event where
 
 import Prelude
 
-import Data.Maybe (Maybe(..))
+import Control.Alt ((<|>))
+import Data.Maybe (Maybe(..), fromMaybe, maybe)
+import Effect (Effect)
 import Hedwig.Foreign (Trait, on, on')
+import Web.DOM.Node (Node)
 import Web.DOM.Node as Node
 import Web.Event.Event as Event
 import Web.HTML.HTMLInputElement as HTMLInputElement
+import Web.HTML.HTMLTextAreaElement as HTMLTextAreaElement
 
 -- MOUSE --
 
@@ -38,11 +42,24 @@ onMouseOut = on' "mouseout"
 
 onInput :: forall msg. (String -> msg) -> Trait msg
 onInput f = on "input" $ \event -> do
-  let maybeInputElement = event # Event.target >>= Node.fromEventTarget >>= HTMLInputElement.fromNode
-  value <- case maybeInputElement of
-    Just inputElement -> HTMLInputElement.value inputElement
-    Nothing -> pure ""
+
+  value <- Event.target event
+    >>= Node.fromEventTarget
+    # \n ->
+      getInputVal HTMLInputElement.fromNode HTMLInputElement.value n
+      <|> getInputVal HTMLTextAreaElement.fromNode HTMLTextAreaElement.value n
+    # fromMaybe (pure "")
+
   pure $ f value
+  where
+    getInputVal :: forall a.
+      (Node -> Maybe a)
+      -> (a -> Effect String)
+      -> Maybe Node
+      -> Maybe (Effect String)
+    getInputVal fromNode getVal node =
+      node >>= fromNode <#> getVal
+
 
 onCheck :: forall msg. (Boolean -> msg) -> Trait msg
 onCheck f = on "change" $ \event -> do
